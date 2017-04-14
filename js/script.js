@@ -57,7 +57,6 @@ let ToyRobotUtils = ((dcoument, window) => {
 
     /* On move. No change of direction */
     let move = () => {
-        console.log(placed);
         if (placed) {
             let newObj = getState();
             let currentDirection = newObj.d;
