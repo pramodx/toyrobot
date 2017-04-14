@@ -5,33 +5,37 @@ let ToyRobotUtils = ((dcoument, window) => {
         let commandBtn = document.getElementById('formButton');
 
         commandBtn.addEventListener('click', function(e) {
-            console.log(commands);
-            console.log(commands.value);
+            // console.log(commands);
+            // console.log(commands.value);
         }, false);
     }
 
     let directions = {
-        'north': 1,
-        'south': -1,
-        'west': -1,
-        'east': 1
+        'north': { val: 1, axis: 'y' },
+        'south': { val: -1, axis: 'y' },
+        'west': { val: -1, axis: 'x' },
+        'east': { val: 1, axis: 'x' }
     };
 
     let state = {
         x: 0,
         y: 0,
-        d: directions['north'],
+        d: directions['north'].val,
+        axis: directions['north'].axis,
         get getState() {
             return {
                 x: this.x,
                 y: this.y,
-                d: this.d
+                d: this.d,
+                axis: this.axis
             }
         },
         set setState(obj) {
+            console.log(obj);
             this.x = obj.x;
             this.y = obj.y;
-            this.d = directions[obj.d]
+            this.d = directions[obj.d].val;
+            this.axis = directions[obj.d].axis;
         }
     };
 
@@ -45,7 +49,14 @@ let ToyRobotUtils = ((dcoument, window) => {
 
     let move = () => {
         let newObj = getState();
-        let currentDirection = directions[newObj.d];
+        let currentDirection;
+        for (let key in directions) {
+            if (directions.hasOwnProperty(key)) {
+                if (directions[key].val == newObj.d && directions[key].axis == newObj.axis) {
+                    currentDirection = key;
+                }
+            }
+        }
 
         switch (currentDirection) {
             case 'north':
@@ -62,8 +73,8 @@ let ToyRobotUtils = ((dcoument, window) => {
                 break;
             default:
         }
-        console.log(newObj);
-        setState(newObj.x, newObj.y, newObj.d)
+        //console.log(newObj);
+        setState(newObj.x, newObj.y, currentDirection)
 
         try {
             checkPositionValidity(newObj.x, newObj.y);

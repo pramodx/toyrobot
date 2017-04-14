@@ -27,6 +27,15 @@ describe('ToyRobotTests', function() {
 
     describe('2.When toy is moved', () => {
 
+        beforeEach(() => {
+            var directions = {
+                'north': { val: 1, axis: 'y' },
+                'south': { val: -1, axis: 'y' },
+                'west': { val: -1, axis: 'x' },
+                'east': { val: 1, axis: 'x' }
+            };
+        })
+
         it('should increment y by 1 if movement is north', () => {
             toyRobotUtils.setState(2, 2, 'north');
             toyRobotUtils.move();
