@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Base styles -->
+    <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-2.5.2/jasmine.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <!-- Test libs -->
+    <!--<script src="jasmine/lib/jasmine-2.5.2/jasmine.js"></script>
+    <script src="jasmine/lib/jasmine-2.5.2/jasmine-html.js"></script>
+    <script src="jasmine/lib/jasmine-2.5.2/boot.js"></script>-->
+
+
+    <!--specs-->
+    <!--<script src="specs/spec.js"></script>-->
+</head>
+
+<body>
+    <div class="container clearfix">
+
+        <h1>Toy Robot Coding Exercise</h1>
+        <p id="error"></p>
+        <div>
+            <textarea id="commands" placeholder="Enter commands e.g place (0,0,'NORTH') and hit ENTER"></textarea>
+        </div>
+        <div>
+            <button id="formButton">Report</button>
+        </div>
+        <p id="report"></p>
+    </div>
+
+    <div class="tests">
+        <iframe src="tests.html" frameborder="0"></iframe>
+    </div>
+
+
+
+    <!-- scripts -->
+    <script src="js/script.js"></script>
+    <script>
+        ToyRobotUtils().init();
+    </script>
+
+</body>
+
+</html>
