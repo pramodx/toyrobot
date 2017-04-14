@@ -29,15 +29,16 @@ textarea {
 }
 
 p span {
+    display: block;
     padding: 10px 15px;
     border-radius: 5px;
 }
 
-.error {
+#error {
     background-color: rgba(255, 0, 0, 0.2);
 }
 
-.report {
+#report {
     background-color: rgba(0, 255, 0, 0.2);
 }
 
